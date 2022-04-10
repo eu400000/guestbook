@@ -36,7 +36,7 @@
    [:message
     st/required
     st/string
-    {:message "message must contain at least 10 characters"
+    {:message "message must contain at least 10 characters v2"
      :validate #(> (count %) 9)}]])
 
 (defn validate-message [params]

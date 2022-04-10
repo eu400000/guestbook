@@ -8,7 +8,7 @@
 ; Starting Jack-in Terminal: cmd.exe /d /c lein update-in :dependencies conj [nrepl,"0.9.0"] -- update-in :plugins conj [cider/cider-nrepl,"0.27.4"] -- update-in [:repl-options,:nrepl-middleware] conj '["cider.nrepl/cider-middleware"]' -- with-profile +dev repl :headless
 ; Hooking up nREPL sessions...
 ; Connected session: clj
-; TIPS: 
+; TIPS:
 ;   - You can edit the contents here. Use it as a REPL if you like.
 ;   - `alt+enter` evaluates the current top level form.
 ;   - `ctrl+enter` evaluates the current form.
@@ -18,27 +18,6 @@
 clj꞉user꞉>  ; Use `alt+enter` to evaluate
 ; Jack-in done.
 clj꞉user꞉> 
-; nREPL Connection was close
-; Jacking in...
-; Starting Jack-in Terminal: cmd.exe /d /c lein update-in :dependencies conj [nrepl,"0.9.0"] -- update-in :plugins conj [cider/cider-nrepl,"0.27.4"] -- update-in [:repl-options,:nrepl-middleware] conj '["cider.nrepl/cider-middleware"]' -- with-profile +dev repl :headless
-; Hooking up nREPL sessions...
-; Connected session: clj
-; TIPS: 
-;   - You can edit the contents here. Use it as a REPL if you like.
-;   - `alt+enter` evaluates the current top level form.
-;   - `ctrl+enter` evaluates the current form.
-;   - `alt+up` and `alt+down` traverse up and down the REPL command history
-;      when the cursor is after the last contents at the prompt
-;   - Clojure lines in stack traces are peekable and clickable.
-clj꞉user꞉> 
-; Jack-in done.
-clj꞉user꞉> (start)
-{:started
- ["#'guestbook.config/env"
-  "#'guestbook.db.core/*db*"
-  "#'guestbook.handler/init-app"
-  "#'guestbook.handler/app-routes"
-  "#'guestbook.core/http-server"]}
-clj꞉user꞉> (stop)
-{:stopped ["#'guestbook.core/http-server" "#'guestbook.handler/init-app" "#'guestbook.db.core/*db*"]}
-clj꞉user꞉> 
+; Evaluating file: core.clj
+nil
+clj꞉guestbook.db.core꞉> 
