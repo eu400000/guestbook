@@ -20,4 +20,31 @@ clj꞉user꞉>  ; Use `alt+enter` to evaluate
 clj꞉user꞉> 
 ; Evaluating file: core.clj
 nil
+clj꞉guestbook.db.core꞉> start
+; Syntax error compiling at (c:\Users\UitbeijerseE\OneDrive - De Lage Landen International B.V\Clojure\guestbook\.calva\output-window\output.calva-repl:1:14580).
+; Unable to resolve symbol: start in this context
 clj꞉guestbook.db.core꞉> 
+; Evaluating file: core.clj
+#'guestbook.core/-main
+clj꞉guestbook.core꞉> (start-app
+                      )
+#function[guestbook.core/start-app]
+clj꞉guestbook.core꞉> 
+; Evaluating file: user.clj
+#'user/create-migration
+clj꞉user꞉> (start)
+{:started
+ ["#'guestbook.config/env"
+  "#'guestbook.db.core/*db*"
+  "#'guestbook.handler/init-app"
+  "#'guestbook.handler/app-routes"
+  "#'guestbook.core/http-server"]}
+clj꞉user꞉> (stop)
+
+{:stopped ["#'guestbook.core/http-server" "#'guestbook.handler/init-app" "#'guestbook.db.core/*db*"]}
+clj꞉user꞉> 
+; Evaluating file: core.clj
+nil
+clj꞉guestbook.db.core꞉> (in-ns 'user)
+#namespace[user]
+clj꞉user꞉> 

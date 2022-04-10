@@ -1,0 +1,1 @@
+(do (clojure.core/ns guestbook.servlet (:gen-class :extends javax.servlet.http.HttpServlet)) (def service-method) (clojure.core/defn -service [servlet__2442__auto__ request__2443__auto__ response__2444__auto__] (service-method servlet__2442__auto__ request__2443__auto__ response__2444__auto__)))
