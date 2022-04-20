@@ -6,6 +6,9 @@
 
 ; Jacking in...
 ; Starting Jack-in Terminal: cmd.exe /d /c lein update-in :dependencies conj [nrepl,"0.9.0"] -- update-in :plugins conj [cider/cider-nrepl,"0.27.4"] -- update-in [:repl-options,:nrepl-middleware] conj '["cider.nrepl/cider-middleware"]' -- with-profile +dev repl :headless
+; Interrupting Jack-in process.
+; Jacking in...
+; Starting Jack-in Terminal: cmd.exe /d /c lein update-in :dependencies conj [nrepl,"0.9.0"] -- update-in :plugins conj [cider/cider-nrepl,"0.27.4"] -- update-in [:repl-options,:nrepl-middleware] conj '["cider.nrepl/cider-middleware"]' -- with-profile +dev repl :headless
 ; Hooking up nREPL sessions...
 ; Connected session: clj
 ; TIPS:
@@ -17,34 +20,36 @@
 ;   - Clojure lines in stack traces are peekable and clickable.
 clj꞉user꞉>  ; Use `alt+enter` to evaluate
 ; Jack-in done.
+clj꞉user꞉> (reset-db)
+; Execution error (IllegalArgumentException) at user/reset-db (user.clj:46).
+; find not supported on type: mount.core.DerefableState
 clj꞉user꞉> 
-; Evaluating file: core.clj
-nil
-clj꞉guestbook.db.core꞉> start
-; Syntax error compiling at (c:\Users\UitbeijerseE\OneDrive - De Lage Landen International B.V\Clojure\guestbook\.calva\output-window\output.calva-repl:1:14580).
-; Unable to resolve symbol: start in this context
-clj꞉guestbook.db.core꞉> 
-; Evaluating file: core.clj
-#'guestbook.core/-main
-clj꞉guestbook.core꞉> (start-app
-                      )
-#function[guestbook.core/start-app]
-clj꞉guestbook.core꞉> 
 ; Evaluating file: user.clj
 #'user/create-migration
-clj꞉user꞉> (start)
+clj꞉user꞉> 
+; Evaluating file: core.clj
+#'guestbook.core/-main
+clj꞉guestbook.core꞉> 
+; Evaluating file: user.clj
+(start)
+clj꞉user꞉> #'user/create-migration
+; Execution error (IllegalStateException) at org.h2.mvstore.DataUtils/newIllegalStateException (DataUtils.java:950).
+; The file is locked: nio:C:/Users/UitbeijerseE/OneDrive - De Lage Landen International B.V/Clojure/guestbook/guestbook_dev.db.mv.db [1.4.200/7]
+clj꞉user꞉> 
+(reset-db)
+nil
+clj꞉user꞉> 
+(start)
 {:started
- ["#'guestbook.config/env"
-  "#'guestbook.db.core/*db*"
+ ["#'guestbook.db.core/*db*"
   "#'guestbook.handler/init-app"
   "#'guestbook.handler/app-routes"
   "#'guestbook.core/http-server"]}
-clj꞉user꞉> (stop)
-
-{:stopped ["#'guestbook.core/http-server" "#'guestbook.handler/init-app" "#'guestbook.db.core/*db*"]}
 clj꞉user꞉> 
-; Evaluating file: core.clj
+(reset-db)
 nil
-clj꞉guestbook.db.core꞉> (in-ns 'user)
-#namespace[user]
+clj꞉user꞉> (start)
+{:started []}
+clj꞉user꞉> (stop)
+{:stopped ["#'guestbook.core/http-server" "#'guestbook.handler/init-app" "#'guestbook.db.core/*db*"]}
 clj꞉user꞉> 
