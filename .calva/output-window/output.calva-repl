@@ -53,3 +53,13 @@ clj꞉user꞉> (start)
 clj꞉user꞉> (stop)
 {:stopped ["#'guestbook.core/http-server" "#'guestbook.handler/init-app" "#'guestbook.db.core/*db*"]}
 clj꞉user꞉> 
+(start)
+{:started
+ ["#'guestbook.config/env"
+  "#'guestbook.db.core/*db*"
+  "#'guestbook.handler/init-app"
+  "#'guestbook.handler/app-routes"
+  "#'guestbook.core/http-server"]}
+clj꞉user꞉> (stop)
+{:stopped ["#'guestbook.core/http-server" "#'guestbook.handler/init-app" "#'guestbook.db.core/*db*"]}
+clj꞉user꞉> 

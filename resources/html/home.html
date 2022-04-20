@@ -3,7 +3,7 @@
 <div class="content">
   <div class="columns">
     <div class="column">
-      <h3>Messages</h3>
+      <h3>Feedback</h3>
       <ul class="messages">
         {% for item in messages %}
         <li>
@@ -27,7 +27,7 @@
         <div class="notification is-danger">{{errors.name|join}}</div>
         {% endif %}
         <p>
-          Message:
+          Feedback:
           <textarea class="textarea" name="message">{{message}}</textarea>
         </p>
         {% if errors.message %}
