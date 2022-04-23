@@ -10,9 +10,9 @@
 ;; https://luminusweb.com/
 
 
-(defstate ^:dynamic *db*
-          :start (conman/connect! {:jdbc-url (env :database-url)})
-          :stop (conman/disconnect! *db*))
+(defstate ^:dynamic *db* 
+                :start (conman/connect! {:jdbc-url (env :database-url)})
+                :stop (conman/disconnect! *db*))
 
 (conman/bind-connection *db* "sql/queries.sql")
 
@@ -23,9 +23,9 @@
   (read-column-by-index [^java.sql.Timestamp v _2 _3]
     (.toLocalDateTime v))
   java.sql.Date
-  (read-column-by-label [^java.sql.Date v _]
-    (.toLocalDate v))
   (read-column-by-index [^java.sql.Date v _2 _3]
+    (.toLocalDate v))
+  (read-column-by-label [^java.sql.Date v _]
     (.toLocalDate v))
   java.sql.Time
   (read-column-by-label [^java.sql.Time v _]

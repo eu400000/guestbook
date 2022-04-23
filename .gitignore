@@ -15,4 +15,8 @@ profiles.clj
 /node_modules
 /log
 
+.clj-kondo
+.lsp
+.calva
+.nrepl-port
 

@@ -45,10 +45,10 @@
   []
   (migrations/migrate ["reset"] (select-keys env [:database-url])))
 
-(defn migrate
-  "Migrates database up for all outstanding migrations."
-  []
-  (migrations/migrate ["migrate"] (select-keys env [:database-url])))
+( defn migrate
+         "Migrates database up for all outstanding migrations."
+         []
+         (migrations/migrate ["migrate"] (select-keys env [:database-url])))
 
 (defn rollback
   "Rollback latest database migration."

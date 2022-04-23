@@ -42,10 +42,10 @@
   :plugins [[lein-immutant "2.1.0"]
             [lein-uberwar "0.2.1"]] ;; default 0.1.0 gives error
 
-  :uberwar {:handler guestbook.handler/app-handler
-            :init guestbook.handler/init
-            :destroy guestbook.handler/destroy
-            :name "guestbook.war"}
+  ;; :uberwar {:handler guestbook.handler/app-handler
+  ;;           :init guestbook.handler/init
+  ;;           :destroy guestbook.handler/destroy
+  ;;           :name "guestbook.war"}
 
   ;; :uberwar  {:handler webtest1.handler/app-handler
   ;;            :init webtest1.handler/init
