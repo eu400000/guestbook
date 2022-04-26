@@ -6,9 +6,6 @@
 
 ; Jacking in...
 ; Starting Jack-in Terminal: cmd.exe /d /c lein update-in :dependencies conj [nrepl,"0.9.0"] -- update-in :plugins conj [cider/cider-nrepl,"0.27.4"] -- update-in [:repl-options,:nrepl-middleware] conj '["cider.nrepl/cider-middleware"]' -- with-profile +dev repl :headless
-; Interrupting Jack-in process.
-; Jacking in...
-; Starting Jack-in Terminal: cmd.exe /d /c lein update-in :dependencies conj [nrepl,"0.9.0"] -- update-in :plugins conj [cider/cider-nrepl,"0.27.4"] -- update-in [:repl-options,:nrepl-middleware] conj '["cider.nrepl/cider-middleware"]' -- with-profile +dev repl :headless
 ; Hooking up nREPL sessions...
 ; Connected session: clj
 ; TIPS:
@@ -20,27 +17,23 @@
 ;   - Clojure lines in stack traces are peekable and clickable.
 clj꞉user꞉>  ; Use `alt+enter` to evaluate
 ; Jack-in done.
+clj꞉user꞉> (start)
+{:started
+ ["#'guestbook.config/env"
+  "#'guestbook.db.core/*db*"
+  "#'guestbook.handler/init-app"
+  "#'guestbook.handler/app-routes"
+  "#'guestbook.core/http-server"]}
 clj꞉user꞉> 
-clj꞉guestbook.db.core꞉> 
-:database-url
-clj꞉guestbook.db.core꞉> 
-#<DerefableState@6a83ee53: :not-delivered>
-clj꞉guestbook.db.core꞉> 
-(env :database-url)
-; Execution error (ClassCastException) at guestbook.db.core/eval26146 (form-init2159861582077963639.clj:29).
-; class mount.core.DerefableState cannot be cast to class clojure.lang.IFn (mount.core.DerefableState is in unnamed module of loader clojure.lang.DynamicClassLoader @bdc8014; clojure.lang.IFn is in unnamed module of loader 'app')
-clj꞉guestbook.db.core꞉> 
-; Evaluating file: user.clj
-#'user/create-migration
-clj꞉user꞉> 
-clj꞉guestbook.db.core꞉> 
-(env :database-url)
-; Execution error (ClassCastException) at guestbook.db.core/eval27962 (form-init2159861582077963639.clj:37).
-; class mount.core.DerefableState cannot be cast to class clojure.lang.IFn (mount.core.DerefableState is in unnamed module of loader clojure.lang.DynamicClassLoader @bdc8014; clojure.lang.IFn is in unnamed module of loader 'app')
-clj꞉guestbook.db.core꞉> 
-clj꞉user꞉> (restart-db)
-; Execution error (ClassCastException) at guestbook.db.core/eval15646$fn (core.clj:14).
-; class mount.core.DerefableState cannot be cast to class clojure.lang.IFn (mount.core.DerefableState is in unnamed module of loader clojure.lang.DynamicClassLoader @bdc8014; clojure.lang.IFn is in unnamed module of loader 'app')
+(restart)
+{:started
+ ["#'guestbook.config/env"
+  "#'guestbook.db.core/*db*"
+  "#'guestbook.handler/init-app"
+  "#'guestbook.handler/app-routes"
+  "#'guestbook.core/http-server"]}
+clj꞉user꞉> (stop)
+{:stopped ["#'guestbook.core/http-server" "#'guestbook.handler/init-app" "#'guestbook.db.core/*db*"]}
 clj꞉user꞉> 
 (start)
 {:started
@@ -50,55 +43,6 @@ clj꞉user꞉> 
   "#'guestbook.handler/app-routes"
   "#'guestbook.core/http-server"]}
 clj꞉user꞉> 
-clj꞉guestbook.db.core꞉> 
-(env :database-url)
-"jdbc:h2:./guestbook_dev.db"
-clj꞉guestbook.db.core꞉> (user/restart-db)
-{:snips {},
- :fns
- {:save-message!
-  {:meta
-   {:doc "creates a new message",
-    :command :!,
-    :result :n,
-    :file "sql/queries.sql",
-    :line 1,
-    :arglists ([db] [db params] [db params options & command-options])},
-   :fn #function[conman.core/try-query/fn--15539/fn--15540]},
-  :get-messages
-  {:meta
-   {:doc "selects all available messages",
-    :command :?,
-    :result :*,
-    :file "sql/queries.sql",
-    :line 7,
-    :arglists ([db] [db params] [db params options & command-options])},
-   :fn #function[conman.core/try-query/fn--15539/fn--15540]}}}
-clj꞉guestbook.db.core꞉> 
-(env :database-url)
-(in-ns user)
-clj꞉guestbook.db.core꞉> "jdbc:h2:./guestbook_dev.db"
-; Syntax error compiling at (c:\Users\UitbeijerseE\OneDrive - De Lage Landen International B.V\Clojure\guestbook\.calva\output-window\output.calva-repl:80:25).
-; Unable to resolve symbol: user in this context
-clj꞉guestbook.db.core꞉> 
-(in-ns 'user)
-#namespace[user]
-clj꞉user꞉> 
-(stop)
-{:stopped ["#'guestbook.core/http-server" "#'guestbook.handler/init-app" 9sta"#'guestbook.db.core/*db*"]}
-clj꞉user꞉> 
-(start)
-{:started
- ["#'guestbook.config/env"
-  "#'guestbook.db.core/*db*"
-  "#'guestbook.handler/init-app"
-  "#'guestbook.handler/app-routes"
-  "#'guestbook.core/http-server"]}
-clj꞉user꞉> 
-clj꞉guestbook.db.core꞉> 
-(env :database-url)
-"jdbc:h2:./guestbook_dev.db"
-clj꞉guestbook.db.core꞉> 
 ; nREPL Connection was closed
 ; Jacking in...
 ; Starting Jack-in Terminal: cmd.exe /d /c lein update-in :dependencies conj [nrepl,"0.9.0"] -- update-in :plugins conj [cider/cider-nrepl,"0.27.4"] -- update-in [:repl-options,:nrepl-middleware] conj '["cider.nrepl/cider-middleware"]' -- with-profile +dev repl :headless
@@ -112,5 +56,13 @@ clj꞉guestbook.db.core꞉> 
 ;      when the cursor is after the last contents at the prompt
 ;   - Clojure lines in stack traces are peekable and clickable.
 clj꞉user꞉> 
-; Jack-in done.
+; Jack-in done.()
+clj꞉user꞉> 
+(start)
+{:started
+ ["#'guestbook.config/env"
+  "#'guestbook.db.core/*db*"
+  "#'guestbook.handler/init-app"
+  "#'guestbook.handler/app-routes"
+  "#'guestbook.core/http-server"]}
 clj꞉user꞉> 
